@@ -94,10 +94,10 @@ class Num2Word_NL(Num2Word_EU):
 
     def merge(self, curr, next):
         ctext, cnum, ntext, nnum = curr + next
-
         if cnum == 1:
             if nnum < 10 ** 6:
                 return next
+            
             ctext = "een"
 
         if nnum > cnum:
@@ -114,7 +114,7 @@ class Num2Word_NL(Num2Word_EU):
                 else:
                     ntext += "en"
                 ntext, ctext = ctext, ntext  # + "en"
-            elif cnum >= 10 ** 6:
+            elif cnum >= 100:
                 ctext += " "
             val = cnum + nnum
 
